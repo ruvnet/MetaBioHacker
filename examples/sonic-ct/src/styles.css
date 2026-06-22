@@ -195,7 +195,8 @@ html, body, #root {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 30;
+  z-index: 200;        /* well above the Three.js canvas */
+  pointer-events: auto; /* re-enable — .hud parent has pointer-events:none */
   display: flex;
   flex-direction: row;
   align-items: stretch;
