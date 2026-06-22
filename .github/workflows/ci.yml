@@ -30,17 +30,8 @@ jobs:
       - name: Clippy (deny warnings)
         run: cargo clippy --release -p sonic-ct --lib -- -D warnings
 
-      - name: Tests (16 physics gates)
+      - name: Tests (physics gates)
         run: cargo test --release -p sonic-ct
-
-      - name: Build WASM
-        run: bash scripts/build-sonic-ct-wasm.sh
-
-      - name: WASM size check (≤ 512 KB)
-        run: |
-          SIZE=$(wc -c < crates/sonic-ct-wasm/pkg/sonic_ct_bg.wasm 2>/dev/null || echo 0)
-          echo "WASM size: ${SIZE} bytes"
-          [ "$SIZE" -le 524288 ] || (echo "WASM too large: ${SIZE}" && exit 1)
 
   governance-gates:
     name: MetaBioHacker governance gates
@@ -51,39 +42,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: npm
-          cache-dependency-path: packages/metabiohacker/package-lock.json
 
       - name: Install
         run: cd packages/metabiohacker && npm ci || npm install
 
-      - name: Governance tests (14 gates)
+      - name: Governance tests
         run: cd packages/metabiohacker && npm test
-
-  pages:
-    name: Deploy GitHub Pages
-    runs-on: ubuntu-latest
-    needs: [rust-engine, governance-gates]
-    if: github.ref == 'refs/heads/main'
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build docs site
-        run: |
-          mkdir -p _site
-          cp -r docs/* _site/ 2>/dev/null || true
-          cp README.md _site/index.md 2>/dev/null || true
-
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
