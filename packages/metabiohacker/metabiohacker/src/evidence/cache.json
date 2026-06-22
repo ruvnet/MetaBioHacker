@@ -1,0 +1,77 @@
+{
+  "note": "Pre-graded evidence dossiers for offline/deterministic use. Refresh with the ruvn CLI (RuvnEvidenceProvider). Grades reflect general research posture, not a clinical claim — acoustic USCT stays research-only.",
+  "dossiers": {
+    "mri": {
+      "question": "Evidence quality for MRI as an anatomical prior for soft-tissue structure.",
+      "modality": "mri",
+      "allowedClaims": ["high-resolution soft-tissue anatomy", "structural prior for organ boundaries"],
+      "blockedClaims": ["diagnosis", "treatment"],
+      "evidenceGrade": "A",
+      "citations": [{ "title": "MRI principles (NIBIB)", "url": "https://www.nibib.nih.gov/science-education/science-topics/magnetic-resonance-imaging-mri", "grade": "A" }],
+      "humanReviewRequired": false
+    },
+    "ct": {
+      "question": "Evidence quality for CT anatomical structure.",
+      "modality": "ct",
+      "allowedClaims": ["cross-sectional anatomy", "bone/structure prior"],
+      "blockedClaims": ["diagnosis"],
+      "evidenceGrade": "A",
+      "citations": [{ "title": "Computed Tomography (NIBIB)", "url": "https://www.nibib.nih.gov/science-education/science-topics/computed-tomography-ct", "grade": "A" }],
+      "humanReviewRequired": false
+    },
+    "ultrasound": {
+      "question": "Evidence quality for ultrasound-based body composition / organ boundaries.",
+      "modality": "ultrasound",
+      "allowedClaims": ["organ boundary estimation", "body composition trend (wellness)"],
+      "blockedClaims": ["diagnosis", "cancer detection"],
+      "evidenceGrade": "B",
+      "citations": [{ "title": "Quantitative ultrasound review", "url": "https://www.ncbi.nlm.nih.gov/pmc/", "grade": "B" }],
+      "humanReviewRequired": false
+    },
+    "lab": {
+      "question": "Evidence quality for blood labs as biochemical context.",
+      "modality": "lab",
+      "allowedClaims": ["biochemical context", "longitudinal trend"],
+      "blockedClaims": ["diagnosis"],
+      "evidenceGrade": "A",
+      "citations": [{ "title": "LOINC (Regenstrief)", "url": "https://loinc.org/", "grade": "A" }],
+      "humanReviewRequired": false
+    },
+    "ekg": {
+      "question": "Evidence quality for EKG cardiac timing.",
+      "modality": "ekg",
+      "allowedClaims": ["cardiac rhythm timing", "rate/HRV features"],
+      "blockedClaims": ["diagnosis"],
+      "evidenceGrade": "A",
+      "citations": [{ "title": "Electrocardiogram (NHLBI)", "url": "https://www.nhlbi.nih.gov/health/heart-tests", "grade": "A" }],
+      "humanReviewRequired": false
+    },
+    "eeg": {
+      "question": "Evidence quality for EEG neural timing/band features.",
+      "modality": "eeg",
+      "allowedClaims": ["band-power features", "neural timing"],
+      "blockedClaims": ["seizure diagnosis"],
+      "evidenceGrade": "B",
+      "citations": [{ "title": "EEG overview (NINDS)", "url": "https://www.ninds.nih.gov/", "grade": "B" }],
+      "humanReviewRequired": false
+    },
+    "acoustic": {
+      "question": "Evidence quality for ultrasound-CT acoustic reconstruction as a standalone claim.",
+      "modality": "acoustic",
+      "allowedClaims": ["research reconstruction", "relative acoustic class map"],
+      "blockedClaims": ["diagnosis", "organ identity from speed alone"],
+      "evidenceGrade": "C",
+      "citations": [{ "title": "USCT / FWI research literature", "url": "https://www.ncbi.nlm.nih.gov/pmc/", "grade": "C" }],
+      "humanReviewRequired": false
+    },
+    "pathology": {
+      "question": "Evidence quality for pathology as ground-truth-adjacent.",
+      "modality": "pathology",
+      "allowedClaims": ["specimen finding (with review)"],
+      "blockedClaims": ["autonomous diagnosis"],
+      "evidenceGrade": "A",
+      "citations": [{ "title": "Pathology fundamentals", "url": "https://www.cap.org/", "grade": "A" }],
+      "humanReviewRequired": true
+    }
+  }
+}

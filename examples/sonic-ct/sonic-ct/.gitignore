@@ -1,0 +1,5 @@
+node_modules
+dist
+optimize.report.json
+benchmark.report.json
+public/benchmark/

@@ -1,0 +1,4 @@
+[workspace]
+members = ["crates/sonic-ct"]
+exclude = ["crates/sonic-ct-wasm"]
+resolver = "2"

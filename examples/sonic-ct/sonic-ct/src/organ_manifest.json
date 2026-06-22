@@ -1,0 +1,21 @@
+{
+  "model": "human.glb",
+  "attribution": "CesiumMan — Khronos glTF Sample Assets, CC-BY 4.0 (Cesium). Used as the open-source outer-body ghost shell.",
+  "notes": "Maps GLB mesh names to organ identities and ghost colours. Default ships the CC-BY CesiumMan body shell; swap in a licensed anatomy model (e.g. Zygote organs) by replacing public/models/human.glb and updating GLB_URL. The GLB is a VISUAL prior only — the Rust procedural phantom remains the physics ground truth.",
+  "ghostMaterial": {
+    "color": "#6FD9FF",
+    "emissive": "#2BEAFF",
+    "emissiveIntensity": 0.28,
+    "opacity": 0.22
+  },
+  "organs": {
+    "heart": { "names": ["Heart", "heart"], "color": "#FF4D6D" },
+    "lung": { "names": ["Lung", "Lung_L", "Lung_R", "lungs"], "color": "#6FA8FF" },
+    "liver": { "names": ["Liver", "liver_mesh_001"], "color": "#FF9F6E" },
+    "spleen": { "names": ["Spleen"], "color": "#C06BFF" },
+    "kidney": { "names": ["Kidney_L", "Kidney_R", "kidney"], "color": "#5CFFB1" },
+    "aorta": { "names": ["Aorta"], "color": "#FF4D6D" },
+    "spine": { "names": ["Spine", "Vertebrae"], "color": "#EAF7FF" },
+    "ribs": { "names": ["Ribs", "Ribcage"], "color": "#EAF7FF" }
+  }
+}
