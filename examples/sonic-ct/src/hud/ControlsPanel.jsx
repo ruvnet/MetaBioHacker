@@ -44,7 +44,8 @@ export default function ControlsPanel() {
   const rescan    = useStore((s) => s.rescan);
   const building  = useStore((s) => s.building);
 
-  const [open, setOpen] = useState(false); // collapsed by default on small screens
+  // Open on desktop (≥641px), collapsed on mobile
+  const [open, setOpen] = useState(typeof window !== 'undefined' && window.innerWidth > 640);
   const [dsp,  setDsp]  = useState({ bandpass: true, tgc: true, matched: false, envelope: true });
   const [method, setMethod] = useState(closestMethodIdx(params.iters));
 
@@ -72,6 +73,7 @@ export default function ControlsPanel() {
         aria-label="Toggle controls"
       >
         <span className="controls-icon">⚙</span>
+        <span className="controls-label">Controls</span>
         <span className="controls-chevron">{open ? "›" : "‹"}</span>
       </button>
 
