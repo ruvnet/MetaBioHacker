@@ -48,7 +48,7 @@ jobs:
       - name: Install demo dependencies
         run: cd examples/sonic-ct && npm ci
 
-      - name: Build demo (base=/MetaBioHacker/demo/)
+      - name: Build demo (base=/SonicChamber/demo/)
         run: cd examples/sonic-ct && npm run build
         env:
           GITHUB_PAGES: "true"
