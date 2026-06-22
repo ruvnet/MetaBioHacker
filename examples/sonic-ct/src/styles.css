@@ -402,6 +402,8 @@ html, body, #root {
     left: 4px !important;
     right: 4px !important;
     bottom: 32px !important;
+    width: auto !important;
+    transform: none !important;  /* remove desktop translateX(-50%) */
     padding: 6px 8px;
     gap: 6px;
   }
