@@ -4,8 +4,18 @@
 > Rust physics engine · WebAssembly runtime · TypeScript SDK · zero patient data.
 
 [![CI](https://github.com/ruvnet/MetaBioHacker/actions/workflows/ci.yml/badge.svg)](https://github.com/ruvnet/MetaBioHacker/actions/workflows/ci.yml)
+[![Live Demo](https://img.shields.io/badge/demo-live%20%E2%86%92-brightgreen)](https://ruvnet.github.io/MetaBioHacker/demo/)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://ruvnet.github.io/MetaBioHacker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+---
+
+## Live Demo
+
+**[→ Open interactive USCT demo](https://ruvnet.github.io/MetaBioHacker/demo/)**  
+Run USCT reconstruction in-browser (WebAssembly, ~130 ms). Adjust grid resolution, ring elements, SART iterations, and phantom seed. Visualises ground truth, reconstruction, and tissue segmentation with per-cell uncertainty.
+
+[![MetaBioHacker USCT Demo](docs/assets/demo-preview.svg)](https://ruvnet.github.io/MetaBioHacker/demo/)
 
 ---
 

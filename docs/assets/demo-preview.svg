@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" font-family="monospace,system-ui">
+  <!-- Background -->
+  <rect width="900" height="480" fill="#0d1117"/>
+
+  <!-- Panel labels -->
+  <text x="148" y="22" fill="#8b949e" font-size="11">Ground Truth</text>
+  <text x="310" y="22" fill="#8b949e" font-size="11">Reconstruction</text>
+  <text x="490" y="22" fill="#8b949e" font-size="11">Segmentation</text>
+  <text x="670" y="22" font-size="11" fill="#8b949e">Controls</text>
+
+  <!-- Ground truth speed map heatmap (simplified) -->
+  <g transform="translate(10,30)">
+    <!-- water (blue ring) -->
+    <circle cx="128" cy="128" r="128" fill="#0d2f6e"/>
+    <!-- fat (lighter ring) -->
+    <circle cx="128" cy="128" r="100" fill="#1a5a8a"/>
+    <!-- muscle ring -->
+    <circle cx="128" cy="128" r="80" fill="#1f7aaa"/>
+    <!-- organ blobs -->
+    <ellipse cx="108" cy="128" rx="25" ry="30" fill="#2196c4"/>
+    <ellipse cx="150" cy="118" rx="20" ry="28" fill="#1e8bbb"/>
+    <!-- spine (bright) -->
+    <circle cx="128" cy="150" r="14" fill="#e8f0fe"/>
+    <circle cx="128" cy="128" r="8" fill="#ffffff"/>
+    <!-- color scale bar -->
+    <defs>
+      <linearGradient id="heatmap" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#0d2f6e"/>
+        <stop offset="40%" style="stop-color:#1f7aaa"/>
+        <stop offset="80%" style="stop-color:#2196c4"/>
+        <stop offset="100%" style="stop-color:#ffffff"/>
+      </linearGradient>
+    </defs>
+    <rect x="0" y="262" width="256" height="8" fill="url(#heatmap)" rx="2"/>
+    <text x="0" y="282" fill="#8b949e" font-size="9">1300 m/s</text>
+    <text x="210" y="282" fill="#8b949e" font-size="9">3000 m/s</text>
+  </g>
+
+  <!-- Reconstruction + ring overlay -->
+  <g transform="translate(275,30)">
+    <circle cx="128" cy="128" r="128" fill="#0d2f6e"/>
+    <circle cx="128" cy="128" r="100" fill="#1a5275"/>
+    <circle cx="128" cy="128" r="80" fill="#1a6890"/>
+    <ellipse cx="108" cy="128" rx="25" ry="30" fill="#1d7ba8" opacity="0.8"/>
+    <ellipse cx="150" cy="118" rx="20" ry="28" fill="#1a72a0" opacity="0.8"/>
+    <circle cx="128" cy="150" r="14" fill="#c8daf8"/>
+    <circle cx="128" cy="128" r="8" fill="#e8f0fe"/>
+    <!-- Transducer ring dots (every ~14deg) -->
+    <g fill="#f8c325" opacity="0.9">
+      <circle cx="256" cy="128" r="3.5"/>
+      <circle cx="248" cy="96" r="3.5"/><circle cx="228" cy="68" r="3.5"/>
+      <circle cx="200" cy="48" r="3.5"/><circle cx="168" cy="36" r="3.5"/>
+      <circle cx="128" cy="0" r="3.5"/><circle cx="88" cy="36" r="3.5"/>
+      <circle cx="56" cy="48" r="3.5"/><circle cx="28" cy="68" r="3.5"/>
+      <circle cx="8" cy="96" r="3.5"/><circle cx="0" cy="128" r="3.5"/>
+      <circle cx="8" cy="160" r="3.5"/><circle cx="28" cy="188" r="3.5"/>
+      <circle cx="56" cy="208" r="3.5"/><circle cx="88" cy="220" r="3.5"/>
+      <circle cx="128" cy="256" r="3.5"/><circle cx="168" cy="220" r="3.5"/>
+      <circle cx="200" cy="208" r="3.5"/><circle cx="228" cy="188" r="3.5"/>
+      <circle cx="248" cy="160" r="3.5"/>
+    </g>
+    <!-- Active ray line -->
+    <line x1="256" y1="128" x2="0" y2="128" stroke="#f8c325" stroke-width="0.8" opacity="0.4"/>
+    <rect x="0" y="262" width="256" height="8" fill="url(#heatmap)" rx="2"/>
+    <text x="0" y="282" fill="#8b949e" font-size="9">Recon: MAE 12.4 m/s</text>
+  </g>
+
+  <!-- Segmentation panel -->
+  <defs>
+    <radialGradient id="fatGrad" cx="50%" cy="50%">
+      <stop offset="60%" style="stop-color:#f8c325;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#f8c325;stop-opacity:0.9"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(540,30)">
+    <!-- background (water) -->
+    <circle cx="128" cy="128" r="128" fill="#0057B7" opacity="0.6"/>
+    <!-- fat ring -->
+    <circle cx="128" cy="128" r="128" fill="none" stroke="#f8c325" stroke-width="28" opacity="0.75"/>
+    <!-- muscle -->
+    <circle cx="128" cy="128" r="82" fill="#c0392b" opacity="0.7"/>
+    <!-- organs -->
+    <ellipse cx="108" cy="128" rx="25" ry="30" fill="#e67e22" opacity="0.9"/>
+    <ellipse cx="150" cy="118" rx="20" ry="28" fill="#e67e22" opacity="0.9"/>
+    <!-- bone (bright white) -->
+    <circle cx="128" cy="150" r="14" fill="#ffffff" opacity="0.95"/>
+    <circle cx="128" cy="128" r="8" fill="#ffffff"/>
+    <!-- uncertainty overlay (semi-transparent) -->
+    <circle cx="128" cy="128" r="80" fill="none" stroke="#ff6b6b" stroke-width="2" opacity="0.4" stroke-dasharray="4,3"/>
+    <!-- Legend -->
+    <rect x="0" y="265" width="12" height="8" fill="#0057B7"/>
+    <text x="16" y="273" fill="#8b949e" font-size="9">Water</text>
+    <rect x="50" y="265" width="12" height="8" fill="#f8c325"/>
+    <text x="66" y="273" fill="#8b949e" font-size="9">Fat</text>
+    <rect x="95" y="265" width="12" height="8" fill="#c0392b"/>
+    <text x="111" y="273" fill="#8b949e" font-size="9">Muscle</text>
+    <rect x="155" y="265" width="12" height="8" fill="#e67e22"/>
+    <text x="171" y="273" fill="#8b949e" font-size="9">Organ</text>
+    <rect x="205" y="265" width="12" height="8" fill="#ffffff"/>
+    <text x="221" y="273" fill="#8b949e" font-size="9">Bone</text>
+  </g>
+
+  <!-- Controls panel -->
+  <g transform="translate(810,30)">
+    <!-- Sliders -->
+    <text x="0" y="14" fill="#c9d1d9" font-size="10">Grid (n)</text>
+    <rect x="0" y="20" width="76" height="4" fill="#30363d" rx="2"/>
+    <rect x="0" y="20" width="55" height="4" fill="#1f6feb" rx="2"/>
+    <circle cx="55" cy="22" r="5" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5"/>
+    <text x="62" y="26" fill="#c9d1d9" font-size="10">96</text>
+
+    <text x="0" y="44" fill="#c9d1d9" font-size="10">Elements</text>
+    <rect x="0" y="50" width="76" height="4" fill="#30363d" rx="2"/>
+    <rect x="0" y="50" width="60" height="4" fill="#1f6feb" rx="2"/>
+    <circle cx="60" cy="52" r="5" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5"/>
+    <text x="62" y="56" fill="#c9d1d9" font-size="10">256</text>
+
+    <text x="0" y="74" fill="#c9d1d9" font-size="10">SART iters</text>
+    <rect x="0" y="80" width="76" height="4" fill="#30363d" rx="2"/>
+    <rect x="0" y="80" width="40" height="4" fill="#1f6feb" rx="2"/>
+    <circle cx="40" cy="82" r="5" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5"/>
+    <text x="62" y="86" fill="#c9d1d9" font-size="10">8</text>
+
+    <text x="0" y="104" fill="#c9d1d9" font-size="10">Seed</text>
+    <rect x="0" y="110" width="76" height="4" fill="#30363d" rx="2"/>
+    <rect x="0" y="110" width="30" height="4" fill="#1f6feb" rx="2"/>
+    <circle cx="30" cy="112" r="5" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5"/>
+    <text x="62" y="116" fill="#c9d1d9" font-size="10">42</text>
+
+    <!-- Run button -->
+    <rect x="0" y="128" width="80" height="22" rx="4" fill="#238636"/>
+    <text x="14" y="143" fill="#ffffff" font-size="11" font-weight="bold">▶ Run</text>
+
+    <!-- Metrics -->
+    <text x="0" y="170" fill="#8b949e" font-size="9">── Metrics ──</text>
+    <text x="0" y="185" fill="#c9d1d9" font-size="9">MAE speed: 12.4 m/s</text>
+    <text x="0" y="198" fill="#c9d1d9" font-size="9">Mean Dice:  0.63</text>
+    <text x="0" y="211" fill="#c9d1d9" font-size="9">Fat Dice:   0.72</text>
+    <text x="0" y="224" fill="#c9d1d9" font-size="9">Muscle:     0.65</text>
+    <text x="0" y="237" fill="#c9d1d9" font-size="9">Organ:      0.41</text>
+    <text x="0" y="250" fill="#c9d1d9" font-size="9">Bone:       0.00 ¹</text>
+    <text x="0" y="263" fill="#c9d1d9" font-size="9">Rays:       52,190</text>
+    <text x="0" y="276" fill="#c9d1d9" font-size="9">Time:       131 ms</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="460" width="900" height="20" fill="#161b22"/>
+  <text x="10" y="474" fill="#8b949e" font-size="10">¹ Bone Dice ≈ 0 expected — straight-ray physics ignores acoustic shadow. FWI roadmap: ADR-0026.</text>
+  <text x="720" y="474" fill="#1f6feb" font-size="10">ruvnet.github.io/MetaBioHacker/demo</text>
+</svg>
